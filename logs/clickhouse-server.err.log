@@ -1,0 +1,188 @@
+2026.06.04 06:01:47.095809 [ 87 ] {} <Warning> Access(local_directory): File /var/lib/clickhouse/access/users.list doesn't exist
+2026.06.04 06:01:47.095817 [ 87 ] {} <Warning> Access(local_directory): Recovering lists in directory /var/lib/clickhouse/access/
+2026.06.04 06:01:47.098698 [ 87 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:01:57.654679 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:05:35.841454 [ 1157 ] {BgSchPool::7206a16b-f751-4f4a-9780-82316de1d511} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:05:35.842458 [ 913 ] {BgSchPool::1b75c3d4-4c4b-41af-a868-cab95fe24603} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:05:45.924766 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:10:01.789132 [ 91 ] {db4ba172-b47d-46f8-a3ef-76c2bf810e2c} <Error> executeQuery: Code: 80. DB::Exception: Incorrect CREATE query: required list of column descriptions or AS section or SELECT. (INCORRECT_QUERY) (version 26.5.1.882 (official build)) (from 127.0.0.1:56526) (query 1, line 1) (in query: CREATE table events), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String&&, int, String, bool) @ 0x000000001050bfce
+2. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000001050b844
+3. DB::Exception::Exception<>(int, FormatStringHelperImpl<>) @ 0x00000000171c77f6
+4. DB::InterpreterCreateQuery::getTablePropertiesAndNormalizeCreateQuery(DB::ASTCreateQuery&, DB::LoadingStrictnessLevel) @ 0x000000001b9db897
+5. DB::InterpreterCreateQuery::createTable(DB::ASTCreateQuery&) @ 0x000000001b9e43cc
+6. DB::InterpreterCreateQuery::execute() @ 0x000000001b9faa1e
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf1060b
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001bf0a741
+9. DB::TCPHandler::runImpl() @ 0x000000001d72addd
+10. DB::TCPHandler::run() @ 0x000000001d74fc24
+11. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+12. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+13. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+15. ? @ 0x0000000000094ac3
+16. __clone @ 0x0000000000125a84
+
+2026.06.04 06:10:01.789539 [ 91 ] {} <Error> TCPHandler: Code: 80. DB::Exception: Incorrect CREATE query: required list of column descriptions or AS section or SELECT. (INCORRECT_QUERY), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String&&, int, String, bool) @ 0x000000001050bfce
+2. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000001050b844
+3. DB::Exception::Exception<>(int, FormatStringHelperImpl<>) @ 0x00000000171c77f6
+4. DB::InterpreterCreateQuery::getTablePropertiesAndNormalizeCreateQuery(DB::ASTCreateQuery&, DB::LoadingStrictnessLevel) @ 0x000000001b9db897
+5. DB::InterpreterCreateQuery::createTable(DB::ASTCreateQuery&) @ 0x000000001b9e43cc
+6. DB::InterpreterCreateQuery::execute() @ 0x000000001b9faa1e
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf1060b
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001bf0a741
+9. DB::TCPHandler::runImpl() @ 0x000000001d72addd
+10. DB::TCPHandler::run() @ 0x000000001d74fc24
+11. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+12. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+13. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+15. ? @ 0x0000000000094ac3
+16. __clone @ 0x0000000000125a84
+
+2026.06.04 06:15:05.481309 [ 573 ] {BgSchPool::84e07083-64f7-4b02-a651-fdf16a416625} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:15:05.482770 [ 410 ] {BgSchPool::ada9b14c-b13a-4c38-803e-5254def3f9ed} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:15:11.167525 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:16:43.214274 [ 86 ] {0b103082-d628-4949-a91f-acd60df9067a} <Error> executeQuery: Code: 60. DB::Exception: Unknown table expression identifier 'events' in scope SELECT * FROM events. (UNKNOWN_TABLE) (version 26.5.1.882 (official build)) (from 127.0.0.1:39104) (query 1, line 1) (in query: SELECT * FROM events;), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String&&, int, String, bool) @ 0x000000001050bfce
+2. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000001050b844
+3. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x00000000116ac976
+4. DB::QueryAnalyzer::resolveQuery(std::shared_ptr<DB::IQueryTreeNode> const&, DB::IdentifierResolveScope&) @ 0x000000001ae9ccba
+5. DB::QueryAnalyzer::resolve(std::shared_ptr<DB::IQueryTreeNode>&, std::shared_ptr<DB::IQueryTreeNode> const&, std::shared_ptr<DB::Context const>) @ 0x000000001ae96657
+6. DB::QueryAnalysisPass::run(std::shared_ptr<DB::IQueryTreeNode>&, std::shared_ptr<DB::Context const>) @ 0x000000001ae95b3a
+7. DB::QueryTreePassManager::run(std::shared_ptr<DB::IQueryTreeNode>&) @ 0x000000001aef7e01
+8. DB::buildQueryTreeAndRunPasses(boost::intrusive_ptr<DB::IAST> const&, DB::SelectQueryOptions const&, std::shared_ptr<DB::Context const> const&, std::shared_ptr<DB::IStorage> const&) @ 0x000000001ba94d64
+9. DB::InterpreterSelectQueryAnalyzer::InterpreterSelectQueryAnalyzer(boost::intrusive_ptr<DB::IAST> const&, std::shared_ptr<DB::Context const> const&, DB::SelectQueryOptions const&, std::vector<String, std::allocator<String>> const&, DB::ActionsDAG const*) @ 0x000000001ba9290c
+10. std::unique_ptr<DB::IInterpreter, std::default_delete<DB::IInterpreter>> std::__function::__policy_func<std::unique_ptr<DB::IInterpreter, std::default_delete<DB::IInterpreter>> (DB::InterpreterFactory::Arguments const&)>::__call_func[abi:fqe220101]<DB::registerInterpreterSelectQueryAnalyzer(DB::InterpreterFactory&)::$_0>(std::__function::__policy_storage const*, DB::InterpreterFactory::Arguments const&) (.llvm.7377630212471404761) @ 0x000000001ba9ba65
+11. DB::InterpreterFactory::get(boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::Context>, DB::SelectQueryOptions const&) @ 0x000000001ba379cd
+12. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0fe88
+13. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001bf0a741
+14. DB::TCPHandler::runImpl() @ 0x000000001d72addd
+15. DB::TCPHandler::run() @ 0x000000001d74fc24
+16. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+17. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+18. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+19. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+20. ? @ 0x0000000000094ac3
+21. __clone @ 0x0000000000125a84
+
+2026.06.04 06:16:43.214704 [ 86 ] {} <Error> TCPHandler: Code: 60. DB::Exception: Unknown table expression identifier 'events' in scope SELECT * FROM events. (UNKNOWN_TABLE), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String&&, int, String, bool) @ 0x000000001050bfce
+2. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000001050b844
+3. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x00000000116ac976
+4. DB::QueryAnalyzer::resolveQuery(std::shared_ptr<DB::IQueryTreeNode> const&, DB::IdentifierResolveScope&) @ 0x000000001ae9ccba
+5. DB::QueryAnalyzer::resolve(std::shared_ptr<DB::IQueryTreeNode>&, std::shared_ptr<DB::IQueryTreeNode> const&, std::shared_ptr<DB::Context const>) @ 0x000000001ae96657
+6. DB::QueryAnalysisPass::run(std::shared_ptr<DB::IQueryTreeNode>&, std::shared_ptr<DB::Context const>) @ 0x000000001ae95b3a
+7. DB::QueryTreePassManager::run(std::shared_ptr<DB::IQueryTreeNode>&) @ 0x000000001aef7e01
+8. DB::buildQueryTreeAndRunPasses(boost::intrusive_ptr<DB::IAST> const&, DB::SelectQueryOptions const&, std::shared_ptr<DB::Context const> const&, std::shared_ptr<DB::IStorage> const&) @ 0x000000001ba94d64
+9. DB::InterpreterSelectQueryAnalyzer::InterpreterSelectQueryAnalyzer(boost::intrusive_ptr<DB::IAST> const&, std::shared_ptr<DB::Context const> const&, DB::SelectQueryOptions const&, std::vector<String, std::allocator<String>> const&, DB::ActionsDAG const*) @ 0x000000001ba9290c
+10. std::unique_ptr<DB::IInterpreter, std::default_delete<DB::IInterpreter>> std::__function::__policy_func<std::unique_ptr<DB::IInterpreter, std::default_delete<DB::IInterpreter>> (DB::InterpreterFactory::Arguments const&)>::__call_func[abi:fqe220101]<DB::registerInterpreterSelectQueryAnalyzer(DB::InterpreterFactory&)::$_0>(std::__function::__policy_storage const*, DB::InterpreterFactory::Arguments const&) (.llvm.7377630212471404761) @ 0x000000001ba9ba65
+11. DB::InterpreterFactory::get(boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::Context>, DB::SelectQueryOptions const&) @ 0x000000001ba379cd
+12. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0fe88
+13. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001bf0a741
+14. DB::TCPHandler::runImpl() @ 0x000000001d72addd
+15. DB::TCPHandler::run() @ 0x000000001d74fc24
+16. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+17. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+18. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+19. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+20. ? @ 0x0000000000094ac3
+21. __clone @ 0x0000000000125a84
+
+2026.06.04 06:16:59.847186 [ 257 ] {BgSchPool::e14cfc45-77d8-4e87-809f-81a3acb53586} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:19:02.348926 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:23:48.070319 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:24:47.591814 [ 359 ] {BgSchPool::bd926134-04e0-422b-8602-d77a62772eeb} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:24:54.188786 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:25:27.699470 [ 390 ] {BgSchPool::5eb4c206-5c42-48be-8a9a-ced66cb7bd32} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:28:39.693182 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 06:32:20.440869 [ 368 ] {BgSchPool::42de7020-35c3-4cbc-afcd-9610abfaa285} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 06:35:54.047428 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 07:05:45.970813 [ 1 ] {} <Warning> Application: Closed all listening sockets. Waiting for 2 outstanding connections.
+2026.06.04 07:05:47.381435 [ 299 ] {BgSchPool::b8487ca8-5298-4ab4-a3b6-bb55d9128c0f} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 07:05:47.381481 [ 192 ] {BgSchPool::42b9bebc-e400-442b-81ef-1180bf5d54c2} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 07:05:48.240106 [ 407 ] {BgSchPool::50636a00-8aab-4966-ac20-027f62e3bae6} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor
+2026.06.04 13:31:18.513900 [ 1 ] {} <Warning> Context: Delay accounting is not enabled, OSIOWaitMicroseconds will not be gathered. You can enable it using `sudo sh -c 'echo 1 > /proc/sys/kernel/task_delayacct'` or by using sysctl.
+2026.06.04 13:31:37.461374 [ 85 ] {59b0c009-6de8-4e1a-b509-c02fbf44e366} <Error> executeQuery: Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 410 (&): &database=database. . (SYNTAX_ERROR) (version 26.5.1.882 (official build)) (from 172.18.0.1:46400) (in query: query=%0ACREATE+TABLE+IF+NOT+EXISTS+database.user_samples+%28%0A++++id++++++++++UUID++++DEFAULT+generateUUIDv4%28%29%2C%0A++++username++++String%2C%0A++++sample_date+Date%2C%0A++++percentage++Float64%2C%0A++++age+++++++++UInt8%2C%0A++++username_hash+String%2C%0A++++folder++++++String%2C%0A++++inserted_at+DateTime+DEFAULT+now%28%29%0A%29+ENGINE+%3D+MergeTree%28%29%0AORDER+BY+%28inserted_at%2C+username%29%0A&database=database), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String const&, int, String, bool) @ 0x0000000015ee334e
+2. DB::Exception::createDeprecated(String const&, int, bool) @ 0x00000000175046df
+3. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x000000001e65d81f
+4. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0bdb5
+5. DB::executeQuery(std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>, DB::WriteBuffer&, std::shared_ptr<DB::Context>, std::function<void (DB::QueryResultDetails const&)>, DB::QueryFlags, std::optional<DB::FormatSettings> const&, std::function<void (DB::IOutputFormat&, String const&, std::shared_ptr<DB::Context const> const&, std::optional<DB::FormatSettings> const&)>, std::function<void ()>, std::function<void ()>) @ 0x000000001bf18dc8
+6. DB::HTTPHandler::processQuery(DB::HTTPServerRequest&, DB::HTMLForm&, DB::HTTPServerResponse&, DB::HTTPHandler::Output&, DB::QueryScope&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d6615f9
+7. DB::HTTPHandler::handleRequest(DB::HTTPServerRequest&, DB::HTTPServerResponse&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d666b24
+8. DB::HTTPServerConnection::run() @ 0x000000001d76cdea
+9. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+10. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+11. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+13. ? @ 0x0000000000094ac3
+14. __clone @ 0x0000000000125a84
+
+2026.06.04 13:31:37.462094 [ 85 ] {59b0c009-6de8-4e1a-b509-c02fbf44e366} <Error> DynamicQueryHandler: Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 410 (&): &database=database. . (SYNTAX_ERROR), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String const&, int, String, bool) @ 0x0000000015ee334e
+2. DB::Exception::createDeprecated(String const&, int, bool) @ 0x00000000175046df
+3. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x000000001e65d81f
+4. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0bdb5
+5. DB::executeQuery(std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>, DB::WriteBuffer&, std::shared_ptr<DB::Context>, std::function<void (DB::QueryResultDetails const&)>, DB::QueryFlags, std::optional<DB::FormatSettings> const&, std::function<void (DB::IOutputFormat&, String const&, std::shared_ptr<DB::Context const> const&, std::optional<DB::FormatSettings> const&)>, std::function<void ()>, std::function<void ()>) @ 0x000000001bf18dc8
+6. DB::HTTPHandler::processQuery(DB::HTTPServerRequest&, DB::HTMLForm&, DB::HTTPServerResponse&, DB::HTTPHandler::Output&, DB::QueryScope&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d6615f9
+7. DB::HTTPHandler::handleRequest(DB::HTTPServerRequest&, DB::HTTPServerResponse&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d666b24
+8. DB::HTTPServerConnection::run() @ 0x000000001d76cdea
+9. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+10. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+11. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+13. ? @ 0x0000000000094ac3
+14. __clone @ 0x0000000000125a84
+ (version 26.5.1.882 (official build))
+2026.06.04 13:31:51.415764 [ 85 ] {c382c8ce-4b0a-4fdc-a591-405957ccd645} <Error> executeQuery: Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 321 (&): &database=database. . (SYNTAX_ERROR) (version 26.5.1.882 (official build)) (from 172.18.0.1:42110) (in query: query=CREATE+TABLE+IF+NOT+EXISTS+database.user_samples+%28id+UUID+DEFAULT+generateUUIDv4%28%29%2C+username+String%2C+sample_date+Date%2C+percentage+Float64%2C+age+UInt8%2C+username_hash+String%2C+folder+String%2C+inserted_at+DateTime+DEFAULT+now%28%29%29+ENGINE+%3D+MergeTree%28%29+ORDER+BY+%28inserted_at%2C+username%29&database=database), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String const&, int, String, bool) @ 0x0000000015ee334e
+2. DB::Exception::createDeprecated(String const&, int, bool) @ 0x00000000175046df
+3. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x000000001e65d81f
+4. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0bdb5
+5. DB::executeQuery(std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>, DB::WriteBuffer&, std::shared_ptr<DB::Context>, std::function<void (DB::QueryResultDetails const&)>, DB::QueryFlags, std::optional<DB::FormatSettings> const&, std::function<void (DB::IOutputFormat&, String const&, std::shared_ptr<DB::Context const> const&, std::optional<DB::FormatSettings> const&)>, std::function<void ()>, std::function<void ()>) @ 0x000000001bf18dc8
+6. DB::HTTPHandler::processQuery(DB::HTTPServerRequest&, DB::HTMLForm&, DB::HTTPServerResponse&, DB::HTTPHandler::Output&, DB::QueryScope&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d6615f9
+7. DB::HTTPHandler::handleRequest(DB::HTTPServerRequest&, DB::HTTPServerResponse&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d666b24
+8. DB::HTTPServerConnection::run() @ 0x000000001d76cdea
+9. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+10. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+11. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+13. ? @ 0x0000000000094ac3
+14. __clone @ 0x0000000000125a84
+
+2026.06.04 13:31:51.415904 [ 85 ] {c382c8ce-4b0a-4fdc-a591-405957ccd645} <Error> DynamicQueryHandler: Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 321 (&): &database=database. . (SYNTAX_ERROR), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000171c8f2a
+1. DB::Exception::Exception(String const&, int, String, bool) @ 0x0000000015ee334e
+2. DB::Exception::createDeprecated(String const&, int, bool) @ 0x00000000175046df
+3. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x000000001e65d81f
+4. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>&, boost::intrusive_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>, std::function<void ()>, DB::QueryResultDetails&) @ 0x000000001bf0bdb5
+5. DB::executeQuery(std::unique_ptr<DB::ReadBuffer, std::default_delete<DB::ReadBuffer>>, DB::WriteBuffer&, std::shared_ptr<DB::Context>, std::function<void (DB::QueryResultDetails const&)>, DB::QueryFlags, std::optional<DB::FormatSettings> const&, std::function<void (DB::IOutputFormat&, String const&, std::shared_ptr<DB::Context const> const&, std::optional<DB::FormatSettings> const&)>, std::function<void ()>, std::function<void ()>) @ 0x000000001bf18dc8
+6. DB::HTTPHandler::processQuery(DB::HTTPServerRequest&, DB::HTMLForm&, DB::HTTPServerResponse&, DB::HTTPHandler::Output&, DB::QueryScope&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d6615f9
+7. DB::HTTPHandler::handleRequest(DB::HTTPServerRequest&, DB::HTTPServerResponse&, StrongTypedef<unsigned long, ProfileEvents::EventTag> const&) @ 0x000000001d666b24
+8. DB::HTTPServerConnection::run() @ 0x000000001d76cdea
+9. Poco::Net::TCPServerConnection::start() @ 0x0000000022f6db87
+10. Poco::Net::TCPServerDispatcher::run() @ 0x0000000022f6e082
+11. Poco::PooledThread::run() @ 0x0000000022f2fa1c
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x0000000022f2df0f
+13. ? @ 0x0000000000094ac3
+14. __clone @ 0x0000000000125a84
+ (version 26.5.1.882 (official build))
+2026.06.04 14:46:29.303764 [ 1 ] {} <Warning> Application: Closed all listening sockets. Waiting for 1 outstanding connections.
+2026.06.04 14:46:29.412305 [ 571 ] {BgSchPool::4a357c9a-fc43-4ddd-bbdb-2800429bfb91} <Warning> MergeMutateSelectedEntry: MergeMutateSelectedEntry was not finalized, the finalization will happen in the destructor

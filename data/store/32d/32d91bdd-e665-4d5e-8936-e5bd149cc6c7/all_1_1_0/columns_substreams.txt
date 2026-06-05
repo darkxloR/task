@@ -1,0 +1,21 @@
+columns substreams version: 1
+8 columns:
+1 substreams for column `id`:
+	id
+2 substreams for column `username`:
+	username.size
+	username
+1 substreams for column `sample_date`:
+	sample_date
+1 substreams for column `percentage`:
+	percentage
+1 substreams for column `age`:
+	age
+2 substreams for column `username_hash`:
+	username_hash.size
+	username_hash
+2 substreams for column `folder`:
+	folder.size
+	folder
+1 substreams for column `inserted_at`:
+	inserted_at

@@ -1,0 +1,7 @@
+columns format version: 1
+5 columns:
+`username` String
+`date` Date
+`percentage` Float64
+`age` UInt8
+`hash` String

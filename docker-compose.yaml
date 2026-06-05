@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - clickhouse
+  clickhouse:
+    image: clickhouse/clickhouse-server
+    container_name: clickhouse
+    ports:
+      - "9000:9000"
+      - "8123:8123"
+      - "9363:9363"
+    environment:
+      CLICKHOUSE_USER: root
+      CLICKHOUSE_PASSWORD: 123
+      CLICKHOUSE_DB: database
+    volumes:
+      - ./data:/var/lib/clickhouse
+      - ./logs:/var/log/clickhouse-server
+      - ./config.d:/etc/clickhouse-server/config.d
+      - ./users.d:/etc/clickhouse-server/users.d
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: root
+      GF_SECURITY_ADMIN_PASSWORD: 123
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+  client:
+    build: ./client
+    container_name: client
+    ports:
+      - "3001:3001"
+    depends_on:
+      - clickhouse
+volumes:
+  grafana_data:
+  clickhouse_data:
+  data:
+  logs:
+  config.d:
+  users.d:
